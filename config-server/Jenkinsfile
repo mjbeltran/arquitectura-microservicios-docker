@@ -6,15 +6,18 @@ node {
             git url: 'https://github.com/mjbeltran/arquitectura-microservicios-docker.git', credentialsId: 'github-mjbeltran', branch: 'master'
         }
 
+        dir ('microservices-arq'){
+          def pom = readMavenPom file:'pom.xml'
+          print pom.version
+          env.version = pom.version
+        }
+        
         dir ('config-server'){
             
                 stage('Build') {
                     sh 'pwd'
                     sh 'ls'
                     sh 'mvn clean install'
-                    def pom = readMavenPom file:'pom.xml'
-                    print pom.version
-                    env.version = pom.version
                 }
 
                 stage('Image') {
