@@ -18,10 +18,8 @@ node {
                 }
 
                 stage('Image') {
-                    dir ('eureka-server') {
                         def app = docker.build "localhost:8888/config-server:${env.version}"
                         app.push()
-                    }
                 }
 
                 stage ('Run') {
@@ -30,7 +28,7 @@ node {
         }
         
         stage ('Final') {
-            build job: 'eureka-server', wait: false
+            build job: 'eureka-server-pipeline', wait: false
         }      
     }
 
