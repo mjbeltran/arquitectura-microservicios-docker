@@ -8,13 +8,19 @@
   <packaging>pom</packaging>
   <name>microservices-arq</name>
   
-<!--   <parent>
+   <parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.9.RELEASE</version>
-		<relativePath/> lookup parent from repository
-	</parent> -->
+	</parent> 
   
+  	<modules>
+		<module>../config-server</module>
+		<module>../deneb</module>
+		<module>../eureka-server</module>
+		<module>../sadr</module>
+	</modules>
+	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
