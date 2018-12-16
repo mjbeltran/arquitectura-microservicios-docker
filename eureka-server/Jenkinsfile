@@ -14,15 +14,6 @@ node {
                 print pom.version
                 env.version = pom.version
             }
-
-            stage('Image') {
-                    def app = docker.build "localhost:8761/eureka-server:${env.version}"
-                    app.push()
-            }
-            
-            stage ('Run') {
-            docker.image("localhost:8761/eureka-server:${env.version}").run('-p 8761:8761 -h discovery --name discovery')
-            }
         }        
     }
 }
