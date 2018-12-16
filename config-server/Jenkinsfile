@@ -7,7 +7,9 @@ node {
         }
 
         stage('Build') {
+            sh 'pwd'
             sh 'cd config-server'
+            sh 'pwd'
             sh 'ls'
             sh 'mvn clean install'
             def pom = readMavenPom file:'pom.xml'
