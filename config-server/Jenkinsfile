@@ -21,12 +21,12 @@ node {
                 }
 
                 stage('Image') {
-                        def app = docker.build "172.26.0.1:8888/config-server:${env.version}"
+                        def app = docker.build "127.0.0.1:8888/config-server:${env.version}"
                         app.push()
                 }
 
                 stage ('Run') {
-                    docker.image("172.26.0.1:8888/config-server:${env.version}").run('-p 8888:8888 -h discovery --name discovery')
+                    docker.image("127.0.0.1:8888/config-server:${env.version}").run('-p 8888:8888 -h discovery --name discovery')
                 }
         }
         
