@@ -7,9 +7,9 @@ node {
         }
 
         stage('Build') {
+            sh 'cd config-server'
             sh 'mvn clean install'
-
-            def pom = readMavenPom file:'../microservices-arq/pom.xml'
+            def pom = readMavenPom file:'pom.xml'
             print pom.version
             env.version = pom.version
         }
