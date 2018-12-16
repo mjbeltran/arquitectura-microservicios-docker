@@ -1,0 +1,15 @@
+#!/bin/sh
+          
+          
+echo "--> Suppression de l'ancienne stack"
+ docker stack rm app-microservicios
+
+#echo "--> Attente de la fermeture de la stack et fermeture des conteneurs (30 secondes)"
+#sleep 30
+
+echo "--> Lancement de la commande : docker stack deploy --compose-file app-docker-compose.yml app-microservicios"
+docker stack deploy --compose-file app-docker-compose.yml app-microservicios
+
+echo "--> Application lancée"
+
+#echo " --> Stack d'intégration lancés"

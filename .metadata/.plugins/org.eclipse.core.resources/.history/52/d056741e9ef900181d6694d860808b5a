@@ -1,0 +1,5 @@
+package com.mbg.sadr.config;
+
+public class SwaggerConfig {
+
+}

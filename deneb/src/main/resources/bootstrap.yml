@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: deneb
+  cloud:
+    config:
+      failFast: false
+      uri: http://localhost:8888
+      

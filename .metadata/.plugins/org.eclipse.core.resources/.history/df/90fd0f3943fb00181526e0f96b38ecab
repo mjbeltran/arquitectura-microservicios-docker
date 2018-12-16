@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: deneb
+  cloud:
+    config:
+      failFast: true
+      uri: http://config-server:8888
+      

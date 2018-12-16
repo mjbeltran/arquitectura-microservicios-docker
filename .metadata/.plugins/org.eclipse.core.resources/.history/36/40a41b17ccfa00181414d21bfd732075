@@ -1,0 +1,22 @@
+#Configuration for failfast=false
+
+# HTTP Server
+server:
+  port: ${PORT:2222}   # HTTP port
+  
+logging:
+  file: logs/${spring.application.name}.log
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'DEBUG'
+    org.springframework.web: 'DEBUG'
+    com.atsistemas: 'DEBUG'
+
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery-server:1111/eureka/
+    
+sadr:
+    pingUrl: http://localhost:3331/sadr/ping/

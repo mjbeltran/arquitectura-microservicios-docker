@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: deneb
+  cloud:
+    config:
+      failFast: true
+      uri: http://localhost:8888
+      
+cygnus:
+  sadr:
+    name: sadr
+    pingUrl: http://localhost:3331/sadr/ping/
