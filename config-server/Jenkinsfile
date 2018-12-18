@@ -20,7 +20,7 @@ node {
                     sh 'mvn clean install'
                 }
                 stage('Analyse-SonarQube') {
-                    sh 'mvn sonar:sonar -Dsonar.host.url=http://192.168.33.10:9001 -Dsonar.login=7884eedb75608ff6b9ae6f254e73ac4ddd43b38a'
+                    sh 'mvn -X sonar:sonar -Dsonar.host.url=http://192.168.33.10:9001 -Dsonar.login=7884eedb75608ff6b9ae6f254e73ac4ddd43b38a'
                 }
             
            
