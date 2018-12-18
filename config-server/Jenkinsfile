@@ -19,10 +19,20 @@ node {
                     sh 'ls'
                     sh 'mvn clean install'
                 }
-                stage('Analyse-Sonar') {
-                    sh 'mvn sonar:sonar -Dsonar.host.url=http://192.168.33.10:9001 -Dsonar.login=7884eedb75608ff6b9ae6f254e73ac4ddd43b38a'
-                }
-        }
+              
+            stage('Sonarqube') {
+                    environment {
+                        scannerHome = tool 'SonarQubeScanner'
+                    }
+                    steps {
+                        withSonarQubeEnv('sonarqube') {
+                            sh "${scannerHome}/bin/sonar-scanner"
+                        }
+                        timeout(time: 10, unit: 'MINUTES') {
+                            waitForQualityGate abortPipeline: true
+                        }
+                    }
+                        }
         
         stage ('Final') {
             build job: 'eureka-server-pipeline', wait: false
