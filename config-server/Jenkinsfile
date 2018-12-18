@@ -21,7 +21,7 @@ node {
                 }
               
               stage('Analyse-Sonar') {
-                    sh 'mvn sonar:sonar'
+                    sh 'mvn -X sonar:sonar'
                 }
         }
         
