@@ -8,19 +8,13 @@
   <packaging>pom</packaging>
   <name>microservices-arq</name>
   
-   <parent>
+<!--   <parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.9.RELEASE</version>
-	</parent> 
+		<relativePath/> lookup parent from repository
+	</parent> -->
   
-  	<modules>
-		<module>../config-server</module>
-		<module>../deneb</module>
-		<module>../eureka-server</module>
-		<module>../sadr</module>
-	</modules>
-	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
@@ -31,23 +25,20 @@
 		<docker.maven.plugin.version>0.4.13</docker.maven.plugin.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		 <sonar.host.url>http://192.168.33.10:9001</sonar.host.url>
 	</properties>
 
-	<!-- <build>
+	<build>
 		<pluginManagement>
 			<plugins>
 				<plugin>
-					<groupId>com.spotify</groupId>
-					<artifactId>docker-maven-plugin</artifactId>
-					<version>${docker.maven.plugin.version}</version>
-					<configuration>
-				        <imageName>${project.artifactId}</imageName>
-				        <dockerDirectory>${project.basedir}/docker</dockerDirectory>
-				    </configuration>
+				    <groupId>org.codehaus.mojo</groupId>
+				    <artifactId>sonar-maven-plugin</artifactId>
+				    <version>3.5.0.1254</version> 
 				</plugin>
 			</plugins>
 		</pluginManagement>
-	</build> -->
+	</build> 
 
 	<dependencyManagement>
 		<dependencies>
