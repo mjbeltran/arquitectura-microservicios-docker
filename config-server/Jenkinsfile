@@ -20,12 +20,9 @@ node {
                     sh 'mvn clean install'
                 }
               
-            stage('Sonarqube') {
-                        scannerHome = tool 'SonarQubeScanner'
-                        withSonarQubeEnv('sonarqube') {
-                            sh "${scannerHome}/bin/sonar-scanner"
-                        }                   
-              }
+              stage('Analyse-Sonar') {
+                    sh 'mvn sonar:sonar'
+                }
         }
         
         stage ('Final') {
