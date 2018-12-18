@@ -32,7 +32,8 @@ node {
                             waitForQualityGate abortPipeline: true
                         }
                     }
-                        }
+              }
+        }
         
         stage ('Final') {
             build job: 'eureka-server-pipeline', wait: false
