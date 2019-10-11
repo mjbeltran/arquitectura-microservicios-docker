@@ -1,0 +1,15 @@
+1544135502676	Delete element
+1544135507011	Delete element
+1544135512938	Delete element
+1544135517607	Delete element
+1544136127892	Delete elements
+1544136240572	Delete element
+1544136245110	Delete element
+1544136268659	Delete element
+1544197548222	Move 'docker' to 'target'
+1544273020971	Delete element
+1544273252877	Rename resource 'docker-compose.yml'
+1544273275957	Rename resource 'buildDockerImage.sh'
+1544273865649	Rename resource 'app-deploy-stack.yml'
+1544273981381	Rename resource 'app-docker-deploy-stack.yml'
+1544274004979	Rename resource 'app-docker-deploy-stack.sh'

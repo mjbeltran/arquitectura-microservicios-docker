@@ -1,0 +1,19 @@
+node {
+
+    withMaven(maven:'maven') {
+
+        stage('Checkout') {
+            git url: 'https://github.com/mjbeltran/arquitectura-microservicios-docker.git', credentialsId: 'github-mjbeltran', branch: 'master'
+        }
+
+        dir ('eureka-server') {
+            stage('Build') {
+                sh 'mvn clean install'
+
+                def pom = readMavenPom file:'pom.xml'
+                print pom.version
+                env.version = pom.version
+            }
+        }        
+    }
+}
