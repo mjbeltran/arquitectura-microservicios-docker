@@ -36,6 +36,23 @@
 				    <artifactId>sonar-maven-plugin</artifactId>
 				    <version>3.5.0.1254</version> 
 				</plugin>
+				<!-- dependency-check:check -->
+				<plugin>
+					<groupId>org.owasp</groupId>
+					<artifactId>dependency-check-maven</artifactId>
+					<version>4.0.2</version>
+					<configuration>
+						<cveValidForHours>12</cveValidForHours>
+						<failBuildOnCVSS>4</failBuildOnCVSS>
+					</configuration>
+					<executions>
+						<execution>
+							<goals>
+								<goal>check</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build> 
@@ -68,5 +85,13 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	
+	
+	<modules>
+		<module>.././config-server</module>
+		<module>.././eureka-server</module>
+		<module>.././deneb</module>
+		<module>.././sadr</module>
+	</modules>
 	
 </project>

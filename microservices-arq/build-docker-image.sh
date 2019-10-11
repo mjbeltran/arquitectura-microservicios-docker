@@ -7,16 +7,16 @@
 set -e
 
 # gestión del patrón **/*.sh
-shopt -s globstar
+#shopt -s globstar
 
 echo " --> Construcción de las imágenes docker ..."
 
 echo " ----> Modo de ejecuión script shell"
 
-chmod +x **/*.sh
+#chmod +x **/*.sh
 
 docker-compose -f app-docker-compose.yml build --no-cache --force-rm --pull \
- 	&& docker-compose -f app-docker-compose.yml push
+ #	&& docker-compose -f app-docker-compose.yml push
 
 
 echo " --> Imágenes docker creadas con exito"
