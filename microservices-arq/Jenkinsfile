@@ -1,0 +1,56 @@
+node {
+
+    withMaven(maven:'MavenTest') {
+
+        stage('Checkout') {
+            git url: 'https://github.com/mjbeltran/arquitectura-microservicios-docker.git', credentialsId: 'mjbeltran', branch: 'master'
+        }
+
+        dir ('microservices-arq'){
+          def pom = readMavenPom file:'pom.xml'
+          print pom.version
+          env.version = pom.version
+        
+        
+            
+	         stage('Build') {
+	                    sh 'pwd'
+	                    sh 'ls'
+	                    sh 'mvn clean install'
+	         }   
+	         
+	      	stage ('Creación de imágenes') {
+				  input 'Creación de imágenes?'
+			}
+	         
+	         stage('Images Creation') {
+	          			sh 'ls'
+	          			sh 'chmod +x *.sh'
+	          			sh 'app-docker-cleanup.sh'
+	                    sh './build-docker-image.sh'
+	         }
+	         
+	         stage ('Ejecución de las imágenes') {
+				  input 'Ejecución de las imágenes?'
+			}
+	          
+	         stage('Run Images/ Deploy App') {
+	          			sh 'ls'
+	                    sh './deploy-stack.sh'
+	         } 
+	               /* stage('SonarQube analysis') {
+	                    // requires SonarQube Scanner 2.8+
+	                    def scannerHome = tool 'sonarScanner';
+	                    withSonarQubeEnv('SonarQube') {
+	                      sh "${scannerHome}/bin/sonar-scanner"
+	                    }
+	                 }  
+	        
+	        stage ('Final') {
+	            build job: 'eureka-server-pipeline', wait: false
+	        }  */  
+        
+        } 
+    }
+
+}
