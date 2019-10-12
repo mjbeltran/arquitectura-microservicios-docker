@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo " --> Nettoyage des images docker..."
+echo " --> Limpieza de las docker..."
 
 docker rm $(docker ps -q -f status=exited)
 docker rmi $(docker images -aq)
