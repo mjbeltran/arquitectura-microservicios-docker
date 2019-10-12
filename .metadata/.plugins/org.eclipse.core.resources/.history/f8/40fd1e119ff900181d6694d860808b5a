@@ -1,5 +1,0 @@
-package com.mbg.model;
-
-public class PingRequest {
-
-}

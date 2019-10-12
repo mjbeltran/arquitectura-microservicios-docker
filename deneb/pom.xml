@@ -34,7 +34,7 @@
 
 	<dependencies>
 	<dependency>
-		   	<groupId>com.mbg.mode</groupId>
+		   	<groupId>com.mbg.model</groupId>
 			<artifactId>model</artifactId>
 			<version>0.1-SNAPSHOT</version>
 		</dependency>
